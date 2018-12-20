@@ -6,11 +6,14 @@ import store from '../store';
 import Header from './Core/Header/header';
 import ProductList from './ProductList';
 import ShoppingCart from './ShoppingCart';
+import WeatherLocation from './WeatherLocation';
 
 class App extends Component {
   render() {
     return (
       <Provider store={store}>
+
+          <WeatherLocation></WeatherLocation>
             <div className="App">
                   <Header></Header>
                   <p className="App-intro">
