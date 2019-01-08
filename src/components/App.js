@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Navbar, Grid, Row, Col } from 'react-bootstrap';
+import { Grid, Row, Col } from 'react-bootstrap';
 import { Provider } from 'react-redux';
 import store from '../store';
 //Compontens
@@ -14,7 +14,7 @@ class App extends Component {
       <Provider store={store}>
 
           <WeatherLocation></WeatherLocation>
-            <div className="App">
+             <div className="App">
                   <Header></Header>
                   <p className="App-intro">
                     To get started, edit <code>src/App.js</code> and save to reload.
