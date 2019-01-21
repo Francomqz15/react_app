@@ -9,7 +9,7 @@ const icons = {
 const getWeatherIcon = weatherState => {
 	const icon = icons[weatherState];
 	const sizeIcon =  "4px";
-	console.log(icons['sunny'])
+	
 	if (icon) 
 		return 		<WeatherIcons name="cloud" size={sizeIcon} />
 	else 
