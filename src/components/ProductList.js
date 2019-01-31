@@ -21,9 +21,9 @@ class ProductList extends Component {
 
 		this.state = {
 			products : [
-				{ id: 1, name: "Hipster Ultimate", price: 299, image: "https://s3.amazonaws.com/makeitreal/projects/e-commerce/camiseta-1.jpg" },
-				{ id: 2, name: "On Motion Live", price: 99, image: "https://s3.amazonaws.com/makeitreal/projects/e-commerce/camiseta-2.jpg" },
-				{ id: 3, name: "Underground Max", price: 149, image: "https://s3.amazonaws.com/makeitreal/projects/e-commerce/camiseta-3.jpg" }
+				{ id: 1, name: "Valle de cocora", price: 299, image: "https://s26561.pcdn.co/wp-content/uploads/2016/08/Valle-de-Cocora-colombia.jpg" },
+				{ id: 2, name: "Isla de rosario", price: 99, image: "https://t-ec.bstatic.com/images/hotel/max1024x768/976/97688647.jpg" },
+				{ id: 3, name: "Baru", price: 149, image: "https://www.viajesfalabella.cl/blog/wp-content/uploads/2018/03/012_Playa_Blanca_from_the_Boat.jpg" }
 			],
 			produxtSelected: {}
 		}
@@ -40,7 +40,7 @@ class ProductList extends Component {
 			<div style={styles.products}>
 		        {this.state.products.map(product =>
 		          <div className="thumbnail" style={styles.product} key={product.id}>
-		            <img src={product.image} alt={product.name} />
+		            <img width="250px" src={product.image} alt={product.name} />
 		            <div className="caption">
 		              <h4>{product.name}</h4>
 		              <p>
