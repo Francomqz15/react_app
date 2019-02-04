@@ -1,30 +1,37 @@
 import convert from 'convert-units';
-
-const data2 = {
-	temperature : 15 ,
-	weatherState: 'SUN' ,
-	humidity: 10,
-	wind: '10 m/s'
-}
-
+import { CLOUD, SUN,RAIN ,SNOW ,THUNDER , DRIZZLE  } from '../constants/weathers';
 const getTemp = kelvin => {
 	return Number(convert(kelvin).from("K").to("C").toFixed(2))
 }
 
-const getWeatherState = weather_data => {
-	return 'SUN';
+const getWeatherState = weather => {
+	const  { id } = weather;
+	if (id < 300) {
+		return THUNDER;
+	} else if ( id < 400) {
+		return DRIZZLE;
+	} else if (id < 500){
+		return RAIN;
+	} else if (id < 600) {
+		return SNOW;
+	} else if (id === 800) {
+		return SUN;
+	} else {
+		return CLOUD;
+	}
 }
 
 const transformWeather = weather_data => {
 	const { humidity, temp } = weather_data.main;
 	const { speed } = weather_data.wind;
-	const  weatherState = getWeatherState(weather_data);
+	let randomTemp = Math.random() * (weather_data +30 - weather_data -10) + weather_data +30;
+	const  weatherState = getWeatherState(randomTemp);
 	const temperature = getTemp(temp);
 	const data = {
 		humidity,
 		temperature,
 		weatherState,
-		wind: `${data2.wind} m/s`
+		wind: `${speed} m/s`
 	}
 	return data;
 }

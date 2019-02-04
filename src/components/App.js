@@ -6,14 +6,16 @@ import store from '../store';
 import Header from './Core/Header/header';
 import ProductList from './ProductList';
 import ShoppingCart from './ShoppingCart';
-import WeatherLocation from './WeatherLocation';
+import LocationList from './WeatherLocation';
 
 class App extends Component {
   render() {
     return (
       <Provider store={store}>
 
-          <WeatherLocation></WeatherLocation>
+          <LocationList city="London"></LocationList>
+          <LocationList city="Buenos Aires,ar"></LocationList>
+          <LocationList city="Mexico,mx"></LocationList>
              <div className="App">
                   <Header></Header>
                   <p className="App-intro">
