@@ -24,8 +24,8 @@ const getWeatherState = weather => {
 const transformWeather = weather_data => {
 	const { humidity, temp } = weather_data.main;
 	const { speed } = weather_data.wind;
-	let randomTemp = Math.random() * (weather_data +30 - weather_data -10) + weather_data +30;
-	const  weatherState = getWeatherState(randomTemp);
+	console.log(weather_data)
+	const  weatherState = getWeatherState(weather_data);
 	const temperature = getTemp(temp);
 	const data = {
 		humidity,
