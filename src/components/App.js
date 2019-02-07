@@ -8,16 +8,22 @@ import ProductList from './ProductList';
 import ShoppingCart from './ShoppingCart';
 import LocationList from './WeatherLocation';
 
+
+const cities = [
+'Buenos Aires, ar',
+'Washington, us',
+'Bogota col',
+'Ciudad de México, mx',
+'Madrid, es',
+'Lima, pe'];
+
 class App extends Component {
   render() {
     return (
       <Provider store={store}>
-
-          <LocationList city="London"></LocationList>
-          <LocationList city="Buenos Aires,ar"></LocationList>
-          <LocationList city="Mexico,mx"></LocationList>
-             <div className="App">
-                  <Header></Header>
+          <div>
+                 <Header></Header>
+                  <LocationList cities={cities}></LocationList>
                   <p className="App-intro">
                     To get started, edit <code>src/App.js</code> and save to reload.
                   </p>
