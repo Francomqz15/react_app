@@ -51,11 +51,10 @@ class WeatherLocation extends Component  {
 	}
 
 	render() { 
-		console.log(this.state.city)
 		const { city, data} = this.state
 		return ( 
 			<div className="weatherLocationCont">
-				<Location city={city}>	</Location>
+				<Location city={city} />
 				{data ? <WeatherData data={data}></WeatherData> : <CircularProgress/> }
 				<button onClick={this.handleUpdateClick}>Actualizar </button>
 	 		</div> 

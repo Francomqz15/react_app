@@ -6,7 +6,7 @@ import store from '../store';
 import Header from './Core/Header/header';
 import ProductList from './ProductList';
 import ShoppingCart from './ShoppingCart';
-import LocationList from './WeatherLocation';
+import LocationList from './LocationList';
 
 
 const cities = [
@@ -23,7 +23,7 @@ class App extends Component {
       <Provider store={store}>
           <div>
                  <Header></Header>
-                  <LocationList cities={cities}></LocationList>
+                  <LocationList cities={cities} />
                   <p className="App-intro">
                     To get started, edit <code>src/App.js</code> and save to reload.
                   </p>
