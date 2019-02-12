@@ -18,12 +18,18 @@ const cities = [
 'Lima, pe'];
 
 class App extends Component {
+
+
+  handleSelectedLocation =  city =>  {
+    console.log("handldeWeatherLocationClick")
+  }
+
   render() {
     return (
       <Provider store={store}>
           <div>
-                 <Header></Header>
-                  <LocationList cities={cities} />
+                <Header></Header>
+                        <LocationList cities={cities} onSelectedLocation={this.handleSelectedLocation} ></LocationList>
                   <p className="App-intro">
                     To get started, edit <code>src/App.js</code> and save to reload.
                   </p>

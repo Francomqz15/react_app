@@ -5,6 +5,7 @@ import WeatherData from './WeatherData';
 import transformWeather from './../services/transformWeather';
 import getUrlWeatherByCity from './../services/getUrlWeatherByCity';
 import './styles.css';
+import PropTypes from 'prop-types';
 
 class WeatherLocation extends Component  {
 
@@ -51,9 +52,10 @@ class WeatherLocation extends Component  {
 	}
 
 	render() { 
-		const { city, data} = this.state
+		const { city, data} = this.state;
+		const { onWeatherLocationClick  } = this.props;
 		return ( 
-			<div className="weatherLocationCont">
+			<div className="weatherLocationCont" onClick={onWeatherLocationClick}>
 				<Location city={city} />
 				{data ? <WeatherData data={data}></WeatherData> : <CircularProgress/> }
 				<button onClick={this.handleUpdateClick}>Actualizar </button>
@@ -62,5 +64,9 @@ class WeatherLocation extends Component  {
 		}
 };
 
+
+WeatherLocation.propTypes = {
+	onWeatherLocationClick: PropTypes.func
+}
 
 export default WeatherLocation;
