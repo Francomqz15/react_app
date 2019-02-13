@@ -9,6 +9,7 @@
     "react": "^16.4.1",
     "react-bootstrap": "^0.32.4",
     "react-dom": "^16.4.1",
+    "react-flexbox-grid": "^2.1.2",
     "react-redux": "^6.0.0",
     "react-scripts": "1.1.4",
     "react-weathericons": "^1.0.4",
