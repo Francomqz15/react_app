@@ -14,8 +14,6 @@ const icons = {
 };
 
 const getWeatherIcon = weatherState => {
-	console.log(weatherState)
-	console.log(icons)
 	const icon =  icons[weatherState];
 	const sizeIcon =  "4x";
 	this.inc++;
