@@ -1,5 +1,7 @@
 .details {
-	width: 100%; 
+	width: calc(100% - 40px); 
 	background: gray; 
 	height: 100vh;
+	overflow: auto;
+	padding: 0px 20px;
 }
