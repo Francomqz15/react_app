@@ -29,8 +29,6 @@ const transformWeather = weather_data => {
 	const  weatherState = getWeatherState(weather);
 	const temperature = getTemp(temp);
 
-	debugger;
-
 	const data = {
 		humidity,
 		temperature,

@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { Grid, Row, Col } from 'react-bootstrap';
-import { Provider } from 'react-redux';
-import store from '../store';
 //Compontens
 import Header from './Core/Header/header';
 import ProductList from './ProductList';
+import { createStore } from 'redux';
 import ShoppingCart from './ShoppingCart';
 import LocationList from './LocationList';
 import ForecastExtended from './ForecastExtended.js';
@@ -18,6 +17,9 @@ const cities = [
 'Madrid, es',
 'Lima, pe'];
 
+const store = createStore(() => {}, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+const setCity = value => ({type: 'setCity', value })
+
 class App extends Component {
 
   constructor() {
@@ -26,8 +28,10 @@ class App extends Component {
   }
 
   handleSelectedLocation =  city =>  {
-    this.setState({city})
+    this.setState({city});
     console.log("handldeWeatherLocationClick")
+    
+    store.dispatch(setCity(city))
   }
 
   render() {
@@ -35,7 +39,7 @@ class App extends Component {
 
     return (
  
-      <Provider store={store}>
+
           <div className="container-fluid">
                 <Header></Header>
                     <Row>
@@ -63,7 +67,6 @@ class App extends Component {
                         </Col>
                     </Row>
             </div>
-      </Provider>
       );
   }
 }
