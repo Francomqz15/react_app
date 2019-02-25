@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 import { Grid, Row, Col } from 'react-bootstrap';
+import { connect } from 'react-redux';
 //Compontens
 import Header from './Core/Header/header';
 import ProductList from './ProductList';
-import { createStore } from 'redux';
 import ShoppingCart from './ShoppingCart';
 import LocationList from './LocationList';
 import ForecastExtended from './ForecastExtended.js';
+import PropTypes from 'prop-types';
+
 import './App.css';
+import { setCity } from './actions';
 
 const cities = [
 'Buenos Aires, ar',
@@ -17,8 +20,6 @@ const cities = [
 'Madrid, es',
 'Lima, pe'];
 
-const store = createStore(() => {}, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
-const setCity = value => ({type: 'setCity', value })
 
 class App extends Component {
 
@@ -31,15 +32,13 @@ class App extends Component {
     this.setState({city});
     console.log("handldeWeatherLocationClick")
     
-    store.dispatch(setCity(city))
+    this.props.setCity(city)
   }
 
   render() {
     const {city}  = this.state;
 
     return (
- 
-
           <div className="container-fluid">
                 <Header></Header>
                     <Row>
@@ -71,4 +70,13 @@ class App extends Component {
   }
 }
 
-export default App;
+
+App.propTypes = {
+  setCity: PropTypes.func.isRequired
+}
+
+const mapDispatchToPropsActions = dispatch => ({
+    setCity: value => dispatch(setCity(value))
+});
+
+export default connect(null, mapDispatchToPropsActions)(App)
